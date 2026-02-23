@@ -17,7 +17,7 @@ namespace Mission08_Team0406.Models
         public int Quadrant { get; set; }
 
         public int? CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public Category? CategoryName { get; set; }
 
         public bool Completed { get; set; }
     }

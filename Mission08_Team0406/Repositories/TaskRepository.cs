@@ -14,12 +14,12 @@ namespace Mission08_Team0406.Repositories
 
         public IEnumerable<TaskItem> GetAllTasks()
         {
-            return _context.Tasks.Include(t => t.Category).ToList();
+            return _context.Tasks.Include(t => t.CategoryName).ToList();
         }
 
         public TaskItem GetTaskById(int id)
         {
-            return _context.Tasks.Include(t => t.Category).FirstOrDefault(t => t.TaskId == id);
+            return _context.Tasks.Include(t => t.CategoryName).FirstOrDefault(t => t.TaskId == id);
         }
 
         public void AddTask(TaskItem task)
