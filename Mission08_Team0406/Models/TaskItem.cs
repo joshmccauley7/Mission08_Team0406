@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission08_Team0406.Models
 {
@@ -16,7 +17,9 @@ namespace Mission08_Team0406.Models
         [Range(1, 4, ErrorMessage = "Quadrant must be between 1 and 4")]
         public int Quadrant { get; set; }
 
+        [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
+
         public Category? CategoryName { get; set; }
 
         public bool Completed { get; set; }
