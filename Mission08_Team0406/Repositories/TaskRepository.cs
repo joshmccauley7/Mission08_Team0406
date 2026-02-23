@@ -5,9 +5,9 @@ namespace Mission08_Team0406.Repositories
 {
     public class TaskRepository : ITaskRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly Models.AppDbContext _context;
 
-        public TaskRepository(ApplicationDbContext context)
+        public TaskRepository(Models.AppDbContext context)
         {
             _context = context;
         }

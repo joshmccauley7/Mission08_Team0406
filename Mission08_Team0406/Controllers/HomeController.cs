@@ -8,8 +8,8 @@ namespace Mission08_Team0406.Controllers
 {
     public class HomeController : Controller
     {
-        private DbContext _context;
-        public HomeController(DbContext temp) //Constructor
+        private AppDbContext _context;
+        public HomeController(AppDbContext temp) //Constructor
         {
             _context = temp;
         }
