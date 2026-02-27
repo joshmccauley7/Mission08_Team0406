@@ -1,17 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Mission08_Team0406.Models;
+using Mission08_Team0406.Repositories;
 using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Mission08_Team0406.Controllers
 {
     public class HomeController : Controller
     {
-        private AppDbContext _context;
-        public HomeController(AppDbContext temp) //Constructor
+        private ITaskRepository _repo;
+        public HomeController(ITaskRepository temp) //Constructor
         {
-            _context = temp;
+            _repo = temp;
         }
         public IActionResult Index()
         {
@@ -20,7 +19,7 @@ namespace Mission08_Team0406.Controllers
 
         public IActionResult AddTask()
         {
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.GetAllCategories()
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
