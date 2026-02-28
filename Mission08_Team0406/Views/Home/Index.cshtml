@@ -1,8 +1,59 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Mission08_Team0406.Models.TaskItem>
+@{
+    ViewData["Title"] = "Quadrants";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Q1 - Important / Urgent</h3>
+            @foreach (var task in Model.Where(t => t.Quadrant == 1))
+            {
+                <p>
+                    @task.Task - @task.DueDate?.ToString("MM/dd/yyyy")
+                    <a asp-action="EditTask" asp-route-id="@task.TaskId">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@task.TaskId">Delete</a>
+                    <a asp-action="MarkCompleted" asp-route-id="@task.TaskId">Mark Complete</a>
+                </p>
+            }
+        </div>
+        <div class="col">
+            <h3>Q2 - Important / Not Urgent</h3>
+            @foreach (var task in Model.Where(t => t.Quadrant == 2))
+            {
+                <p>
+                    @task.Task - @task.DueDate?.ToString("MM/dd/yyyy")
+                    <a asp-action="EditTask" asp-route-id="@task.TaskId">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@task.TaskId">Delete</a>
+                    <a asp-action="MarkCompleted" asp-route-id="@task.TaskId">Mark Complete</a>
+                </p>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Q3 - Not Important / Urgent</h3>
+            @foreach (var task in Model.Where(t => t.Quadrant == 3))
+            {
+                <p>
+                    @task.Task - @task.DueDate?.ToString("MM/dd/yyyy")
+                    <a asp-action="EditTask" asp-route-id="@task.TaskId">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@task.TaskId">Delete</a>
+                    <a asp-action="MarkCompleted" asp-route-id="@task.TaskId">Mark Complete</a>
+                </p>
+            }
+        </div>
+        <div class="col">
+            <h3>Q4 - Not Important / Not Urgent</h3>
+            @foreach (var task in Model.Where(t => t.Quadrant == 4))
+            {
+                <p>
+                    @task.Task - @task.DueDate?.ToString("MM/dd/yyyy")
+                    <a asp-action="EditTask" asp-route-id="@task.TaskId">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@task.TaskId">Delete</a>
+                    <a asp-action="MarkCompleted" asp-route-id="@task.TaskId">Mark Complete</a>
+                </p>
+            }
+        </div>
+    </div>
 </div>
